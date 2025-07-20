@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 500 500" xmlns:bx="https://boxy-svg.com">
+  <defs>
+    <bx:export>
+      <bx:file format="svg" path="icon.svg" excluded="true"/>
+      <bx:file format="html" path="icon.html" excluded="true"/>
+      <bx:file format="pdf" path="icon.pdf" excluded="true">
+        <bx:page/>
+      </bx:file>
+      <bx:file format="svg" href="#object-0" path="Background.svg"/>
+      <bx:file format="svg" href="#object-1" path="RulerTop.svg"/>
+      <bx:file format="svg" href="#object-2" path="RulerBottom.svg"/>
+      <bx:file format="svg" href="#object-3" path="ReadMe.svg"/>
+      <bx:file format="svg" href="#object-4" path="Hello.svg"/>
+      <bx:file format="svg" href="#object-5" path="World.svg"/>
+    </bx:export>
+  </defs>
+  <rect width="500" height="500" style="stroke: rgb(0, 0, 0); fill: rgb(30, 32, 34);" id="object-0">
+    <title>Background</title>
+  </rect>
+  <text style="fill: rgb(240, 245, 249); font-family: &quot;Source Code Pro&quot;; font-size: 28px; white-space: pre; transform-box: fill-box; transform-origin: 56.8041px 15.6854px;" transform="matrix(3.409549, -0.675109, 0.675109, 3.409549, 178.595535, 42.882645)" id="object-3"><title>Text</title><tspan x="89.506" y="196.122">Text</tspan><tspan x="89.506" dy="1em">​</tspan></text>
+  <text style="fill: rgb(240, 245, 249); font-family: &quot;Source Code Pro&quot;; font-size: 28px; white-space: pre; transform-origin: 146.31px 186.508px;" transform="matrix(3.409549, -0.675109, 0.675109, 3.409549, 113.62735, -111.957466)" id="object-4"><title>Insert</title><tspan x="89.506" y="196.122">Insert</tspan><tspan x="89.506" dy="1em">​</tspan></text>
+  <text style="fill: rgb(240, 245, 249); font-family: &quot;Source Code Pro&quot;; font-size: 28px; white-space: pre; transform-origin: 146.31px 186.508px;" transform="matrix(3.409549, -0.675109, 0.675109, 3.409549, 194.525513, 223.359558)" id="object-5"><title>Here</title><tspan x="89.506" y="196.122">Here</tspan><tspan x="89.506" dy="1em">​</tspan></text>
+  <path style="stroke: rgba(0, 0, 0, 0); fill: rgba(0, 0, 0, 0.96);" d="M 0 200 C -0.004 230.839 0 0 0 0 L 500 0 L 500 100 C 500 100 0 200 0 200 Z" id="object-1">
+    <title>RulerTop</title>
+  </path>
+  <path style="stroke: rgba(0, 0, 0, 0); fill: rgba(0, 0, 0, 0.96);" d="M -0.264 400.384 L 0 500 L 500 500 L 500 300 L 0 400 L -0.264 400.384 Z" id="object-2">
+    <title>RulerBottom</title>
+  </path>
+</svg>
