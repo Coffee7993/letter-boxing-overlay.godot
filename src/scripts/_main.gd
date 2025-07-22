@@ -30,7 +30,7 @@ func _input(event: InputEvent) -> void:
 	
 	if not pause:
 		if event is InputEventKey:
-			if event.keycode == KEY_UP:
+			if event.keycode == KEY_UP or event.keycode == KEY_K:
 				if event.alt_pressed:
 					if event.ctrl_pressed:
 						horizontal_gap_zoom_in()
@@ -40,7 +40,7 @@ func _input(event: InputEvent) -> void:
 						uniform_zoom_in()
 				else:
 					move_up(1)
-			if event.keycode == KEY_DOWN:
+			if event.keycode == KEY_DOWN or event.keycode == KEY_J:
 				if event.alt_pressed:
 					if event.ctrl_pressed:
 						horizontal_gap_zoom_out()
@@ -50,9 +50,9 @@ func _input(event: InputEvent) -> void:
 						uniform_zoom_out()
 				else:
 					move_down(1)
-			if event.keycode == KEY_LEFT:
+			if event.keycode == KEY_LEFT or event.keycode == KEY_H:
 				move_left(1)
-			if event.keycode == KEY_RIGHT:
+			if event.keycode == KEY_RIGHT or event.keycode == KEY_L:
 				move_right(1)
 		elif event is InputEventMouseMotion:
 			if event.ctrl_pressed:
