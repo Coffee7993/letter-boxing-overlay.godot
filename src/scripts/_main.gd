@@ -1,9 +1,75 @@
 extends Control
 
+# --- Library --- #
+func move_up(units: float):
+	down.custom_minimum_size.y += units * move_sens
+	top.custom_minimum_size.y -= units * move_sens
+	map_centre()
+
+func move_down(units: float):
+	down.custom_minimum_size.y -= units * move_sens
+	top.custom_minimum_size.y += units * move_sens
+	map_centre()
+
+func move_left(units: float):
+	left.custom_minimum_size.x -= units * move_sens
+	right.custom_minimum_size.x += units * move_sens
+	map_centre()
+
+func move_right(units: float):
+	left.custom_minimum_size.x += units * move_sens
+	right.custom_minimum_size.x -= units * move_sens
+	map_centre()
+
+func uniform_zoom_in():
+	left.custom_minimum_size.x += 1 * zoom_sens
+	right.custom_minimum_size.x += 1 * zoom_sens
+	top.custom_minimum_size.y += 1 * zoom_sens
+	down.custom_minimum_size.y += 1 * zoom_sens
+	map_centre()
+
+func uniform_zoom_out():
+	left.custom_minimum_size.x -= 1 * zoom_sens
+	right.custom_minimum_size.x -= 1 * zoom_sens
+	top.custom_minimum_size.y -= 1 * zoom_sens
+	down.custom_minimum_size.y -= 1 * zoom_sens
+	map_centre()
+
+func horizontal_gap_zoom_out():
+	top.custom_minimum_size.y -= 1 * zoom_sens
+	down.custom_minimum_size.y -= 1 * zoom_sens
+	map_centre()
+
+func horizontal_gap_zoom_in():
+	top.custom_minimum_size.y += 1 * zoom_sens
+	down.custom_minimum_size.y += 1 * zoom_sens
+	map_centre()
+
+func vertical_gap_zoom_out():
+	left.custom_minimum_size.x -= 1 * zoom_sens
+	right.custom_minimum_size.x -= 1 * zoom_sens
+	map_centre()
+
+func vertical_gap_zoom_in():
+	left.custom_minimum_size.x += 1 * zoom_sens
+	right.custom_minimum_size.x += 1 * zoom_sens
+	map_centre()
+
+func map_centre():
+	centre.position.y = top.custom_minimum_size.y
+	centre.position.x = left.custom_minimum_size.x
+	centre.size.y = DisplayServer.window_get_size().y - down.custom_minimum_size.y - top.custom_minimum_size.y
+	centre.size.x = DisplayServer.window_get_size().x - right.custom_minimum_size.x - left.custom_minimum_size.x
+
+# --- Application --- #
 @onready var left: ColorRect = $Left
 @onready var right: ColorRect = $Right
 @onready var top: ColorRect = $Top
 @onready var down: ColorRect = $Down
+@onready var centre: ColorRect = $Centre
+
+var move_sens: float = 1
+var zoom_sens: float = 1
 
 var pause: bool :
 	set(value):
@@ -18,10 +84,8 @@ func _ready() -> void:
 	right.custom_minimum_size.x = 64
 	top.custom_minimum_size.y = 64
 	down.custom_minimum_size.y = 64
+	map_centre()
 	pause = false
-
-var move_sens: float = 1
-var zoom_sens: float = 1
 
 func _input(event: InputEvent) -> void:
 	if event is InputEventKey:
@@ -89,49 +153,3 @@ func _input(event: InputEvent) -> void:
 					vertical_gap_zoom_out()
 				else:
 					uniform_zoom_out()
-
-func move_up(units: float):
-	down.custom_minimum_size.y += units * move_sens
-	top.custom_minimum_size.y -= units * move_sens
-	left.custom_minimum_size.y -= units * move_sens
-	right.custom_minimum_size.y -= units * move_sens
-
-func move_down(units: float):
-	down.custom_minimum_size.y -= units * move_sens
-	top.custom_minimum_size.y += units * move_sens
-
-func move_left(units: float):
-	left.custom_minimum_size.x -= units * move_sens
-	right.custom_minimum_size.x += units * move_sens
-
-func move_right(units: float):
-	left.custom_minimum_size.x += units * move_sens
-	right.custom_minimum_size.x -= units * move_sens
-
-func uniform_zoom_in():
-	left.custom_minimum_size.x += 1 * zoom_sens
-	right.custom_minimum_size.x += 1 * zoom_sens
-	top.custom_minimum_size.y += 1 * zoom_sens
-	down.custom_minimum_size.y += 1 * zoom_sens
-
-func uniform_zoom_out():
-	left.custom_minimum_size.x -= 1 * zoom_sens
-	right.custom_minimum_size.x -= 1 * zoom_sens
-	top.custom_minimum_size.y -= 1 * zoom_sens
-	down.custom_minimum_size.y -= 1 * zoom_sens
-
-func horizontal_gap_zoom_out():
-	top.custom_minimum_size.y -= 1 * zoom_sens
-	down.custom_minimum_size.y -= 1 * zoom_sens
-
-func horizontal_gap_zoom_in():
-	top.custom_minimum_size.y += 1 * zoom_sens
-	down.custom_minimum_size.y += 1 * zoom_sens
-
-func vertical_gap_zoom_out():
-	left.custom_minimum_size.x -= 1 * zoom_sens
-	right.custom_minimum_size.x -= 1 * zoom_sens
-
-func vertical_gap_zoom_in():
-	left.custom_minimum_size.x += 1 * zoom_sens
-	right.custom_minimum_size.x += 1 * zoom_sens

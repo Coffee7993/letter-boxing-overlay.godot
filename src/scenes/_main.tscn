@@ -1,4 +1,4 @@
-[gd_scene load_steps=2 format=3 uid="uid://ddg5wm43foj15"]
+[gd_scene load_steps=4 format=3 uid="uid://ddg5wm43foj15"]
 
 [ext_resource type="Script" uid="uid://bd0glufwh4l4f" path="res://src/scripts/_main.gd" id="1_t6yel"]
 
@@ -44,3 +44,7 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 0
 color = Color(0, 0, 0, 1)
+
+[node name="Centre" type="ColorRect" parent="."]
+layout_mode = 1
+color = Color(0, 0, 0, 0.262745)
